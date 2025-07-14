@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from markupsafe import escape
 
@@ -29,3 +31,7 @@ def food(name, food):
 @app.route("/post/by_id/<int:post_id>")
 def show_post_by_id(post_id):
     return f"<h1>The post_id you entered is {post_id}.</h1>"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
